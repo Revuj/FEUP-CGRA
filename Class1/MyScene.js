@@ -75,7 +75,6 @@ class MyScene extends CGFscene {
                     0.0, 0.0, 0.0, 1.0];
         this.multMatrix(sca);
 
-
         // ---- BEGIN Primitive drawing section
 
         if (this.displayDiamond)
