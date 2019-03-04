@@ -24,18 +24,27 @@ class MyScene extends CGFscene {
         this.diamond = new MyDiamond(this);
         this.triangle = new MyTriangle(this);
         this.parallelogram = new MyParallelogram(this);
-        this.smallTriangle = new MyTriangleSmall(this);
-        this.bigTriangle = new MyTriangleBig(this);
+        this.triangleSmall= new MyTriangleSmall(this);
+        this.triangleBig = new MyTriangleBig(this);
 
+        this.tangram = new MyTangram(this);
+
+        //ex3
+        this.cube = new MyUnitCube(this);
 
         //Objects connected to MyInterface
-        this.displayDiamond = true;
         this.displayAxis = true;
-        this.displayTriangle = true;
-        this.displayParallelogram = true;
-        this.displaySmallTriangle = true;
-        this.displayBigTriangle = true;
         this.scaleFactor = 1;
+
+        this.displayTriangle=true;
+        this.displayDiamond=true;
+        this.displayParallelogram=true;
+        this.displaytriangleSmall=true;
+        this.displaytriangleBig=true;
+        this.displayTangram = true;
+
+        //exercicio3
+        this.displayCube = true;
     }
     initLights() {
         this.lights[0].setPosition(15, 2, 5, 1);
@@ -47,9 +56,9 @@ class MyScene extends CGFscene {
         this.camera = new CGFcamera(0.4, 0.1, 500, vec3.fromValues(15, 15, 15), vec3.fromValues(0, 0, 0));
     }
     setDefaultAppearance() {
-        this.setAmbient(0.9, 0.4, 0.8, 1.0);
-        this.setDiffuse(0.9, 0.4, 0.8, 1.0);
-        this.setSpecular(0.9, 0.4, 0.8, 1.0);
+        this.setAmbient(0.2, 0.4, 0.8, 1.0);
+        this.setDiffuse(0.2, 0.4, 0.8, 1.0);
+        this.setSpecular(0.2, 0.4, 0.8, 1.0);
         this.setShininess(10.0);
     }
     display() {
@@ -67,6 +76,8 @@ class MyScene extends CGFscene {
         if (this.displayAxis)
             this.axis.display();
 
+        
+
         this.setDefaultAppearance();
 
         var sca = [this.scaleFactor, 0.0, 0.0, 0.0,
@@ -75,22 +86,31 @@ class MyScene extends CGFscene {
                     0.0, 0.0, 0.0, 1.0];
         this.multMatrix(sca);
 
-        // ---- BEGIN Primitive drawing section
+        if(this.displayCube) {
+            this.pushMatrix();
+            this.translate(0.5,-0.5,0);
+            this.translate(0,0,-0.5);
+            this.cube.display();
+            this.popMatrix();
+        }
+        
+        
+        if (this.displayTangram) {
+            this.pushMatrix();
+            this.rotate(-Math.PI/2,1,0,0);
+            this.tangram.display();
+            this.popMatrix();
+        }
+            
 
-        if (this.displayDiamond)
-            this.diamond.display();
 
-        if (this.displayTriangle)
-            this.triangle.display();
 
-        if (this.displayParallelogram)
-            this.parallelogram.display();
+        
 
-        if (this.displaySmallTriangle)
-            this.smallTriangle.display();
-
-        if (this.displayBigTriangle)
-            this.bigTriangle.display();
+        
+       
+        
+       
 
         // ---- END Primitive drawing section
     }
