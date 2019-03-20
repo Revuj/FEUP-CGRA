@@ -6,6 +6,11 @@
 class MyTangram extends CGFobject {
     constructor(scene) {
         super(scene);
+        this.diamond = new MyDiamond(scene);
+        this.triangle = new MyTriangle(scene);
+        this.parallelogram = new MyParallelogram(scene);
+        this.triangleSmall= new MyTriangleSmall(scene);
+        this.triangleBig = new MyTriangleBig(scene);
 
     }
 
@@ -36,8 +41,7 @@ class MyTangram extends CGFobject {
 
         // ---- BEGIN Primitive drawing section
 
-        if (this.scene.displayDiamond)
-        this.scene.diamond.display();
+        this.diamond.display();
 
         this.scene.popMatrix();
         this.scene.pushMatrix();
@@ -49,8 +53,7 @@ class MyTangram extends CGFobject {
         this.scene.rotate(-pi / 4, 0, 0, 1);
 
 
-       if (this.scene.displayParallelogram)
-            this.scene.parallelogram.display();
+        this.parallelogram.display();
 
         this.scene.popMatrix();
         this.scene.pushMatrix();
@@ -59,8 +62,7 @@ class MyTangram extends CGFobject {
         this.scene.translate(1, 1, 0);
 
 
-        if (this.scene.displayTriangle)
-            this.scene.triangle.display();
+        this.triangle.display();
 
         this.scene.popMatrix();
         this.scene.pushMatrix();
@@ -69,8 +71,7 @@ class MyTangram extends CGFobject {
         this.scene.scale(-1, 1, 1);
 
 
-        if (this.scene.displayTriangle)
-            this.scene.triangle.display();
+        this.triangle.display();
 
         this.scene.popMatrix();
         this.scene.pushMatrix();
@@ -79,9 +80,7 @@ class MyTangram extends CGFobject {
         this.scene.scale(1, -1, 0);
 
 
-        if (this.scene.displaytriangleBig)
-            this.scene.triangleBig.display();
-
+        this.triangleBig.display();
 
 
         this.scene.popMatrix();
@@ -90,8 +89,7 @@ class MyTangram extends CGFobject {
         this.scene.scale(Math.sqrt(2), Math.sqrt(2), 1);
         this.scene.translate(-1, 1, 0);
 
-        if (this.scene.displayTriangle)
-            this.scene.triangle.display();
+        this.triangle.display();
 
         this.scene.popMatrix();
         this.scene.pushMatrix();
@@ -100,8 +98,7 @@ class MyTangram extends CGFobject {
         this.scene.rotate(pi / 2, 0, 0, 1);
 
 
-       // if (this.displaytriangleSmall)
-            this.scene.triangleSmall.display();
+        this.triangleSmall.display();
 
         this.scene.popMatrix();
     }

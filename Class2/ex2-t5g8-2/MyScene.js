@@ -21,11 +21,7 @@ class MyScene extends CGFscene {
 
         //Initialize scene objects
         this.axis = new CGFaxis(this);
-        this.diamond = new MyDiamond(this);
-        this.triangle = new MyTriangle(this);
-        this.parallelogram = new MyParallelogram(this);
-        this.triangleSmall= new MyTriangleSmall(this);
-        this.triangleBig = new MyTriangleBig(this);
+        
 
         this.tangram = new MyTangram(this);
 
@@ -36,14 +32,10 @@ class MyScene extends CGFscene {
         this.displayAxis = true;
         this.scaleFactor = 1;
 
-        this.displayTriangle=true;
-        this.displayDiamond=true;
-        this.displayParallelogram=true;
-        this.displaytriangleSmall=true;
-        this.displaytriangleBig=true;
+       
+    
         this.displayTangram = true;
 
-        //exercicio3
         this.displayCube = true;
     }
     initLights() {
